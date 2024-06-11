@@ -1,0 +1,35 @@
+
+#contaner{
+    display: grid;
+    grid-template-columns: 65% 35%;
+    grid-template-rows: 7vh;
+   
+ 
+    
+}
+#navigate
+{
+  margin-top: 3vh;
+    display: grid;
+    grid-template-columns:auto auto auto ;
+    gap: 10vh;
+  justify-content: center;
+  align-content: center;
+   
+    }
+    #navigate a {
+       
+        background: linear-gradient(to bottom, #5B247A 75%, rgb(87, 172, 187) 25%);
+        background-clip: text;
+        color: transparent;
+        font-size: 3vh;
+
+      }
+      #navigate.two-links > a:first-child {
+        grid-column-start: 2; 
+      }
+
+#logo{
+    width: 30vh;
+   
+}

@@ -1,0 +1,76 @@
+#line1 , #line2 {
+    border: 1px solid rgb(87, 172, 187) ;
+    height:0px
+    }
+    #course_category{
+       
+    margin-top: 20vh; 
+    display: grid;
+    grid-template-columns: 70% 10% auto;
+    align-items: center;
+    
+}
+#course_category h3{
+    background: linear-gradient(to bottom, #3b0c57 75%, rgb(87, 172, 187) 25%);
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    }
+    #course_img{
+    border-radius: 13px;
+    }
+    #rotation{
+        
+        cursor: pointer;
+}#mainContain {
+    width: 15%;
+    height: 20%;
+    position: relative;
+margin-bottom: 15vh;
+  }
+  
+  #card {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transform-style: preserve-3d;
+      transition: all 1s ease;
+      margin-bottom: 16vh;
+      border: 1px solid #3b0c57; 
+      border-radius: 15px; 
+      display: grid;
+      grid-template-rows: auto auto;
+      }
+      
+      #course_name {
+          position: absolute;
+          margin: 2vh;
+          width: 100%;
+          height: 100%;
+          backface-visibility: hidden;
+          }
+          #titele{
+              display: flex;
+              gap: 15vh;
+              align-items: center;
+              }
+              #course_description {
+                  display: flex;
+                  background: linear-gradient(to bottom, #f7f5f8 15%, rgb(132, 200, 212) 45%);
+                  flex-direction: column;
+                  gap: 1vh;
+                  align-items: center;
+                  height: 100%;
+                  width: 100%;
+                  margin-top: 2vh;
+                  backface-visibility: hidden;
+                  transform: rotateY(180deg);
+                }
+#card:hover{
+    transform: rotateY(180deg);
+}
+#material{
+    display: flex;
+    gap: 10vh;
+    margin-left: 2vh;
+}

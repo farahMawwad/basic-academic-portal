@@ -1,0 +1,27 @@
+#cards{
+    display:grid ;
+    grid-template-columns: 30% 30% auto;
+    margin: 10vh;
+    gap: 5vh;
+    }
+    .line{
+    border: 1px solid #3b0c57; 
+display: flex;
+margin: 2vh;
+padding: 2vh;
+gap:3vh
+}
+#subCards{
+    background: linear-gradient(to bottom, #f7f5f8 15%, rgb(132, 200, 212) 45%);
+    border: 1px solid #3b0c57; 
+    border-radius: 15px;
+}
+#edit{
+    width: 16vh;
+    margin: 2vh;
+    text-align: center;
+    border: solid #000000;
+    border-radius: 4vh;
+    border-width: 2px;
+    cursor: pointer;
+}
