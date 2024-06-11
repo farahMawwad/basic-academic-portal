@@ -26,7 +26,7 @@ const CourseSchema = new mongoose.Schema({
 });
 //edit
 UserSchema.statics.signup = async function (email, pass, passConfirm, name) {
-  if ( !email || !pass ) {
+  if ( !email ||   !pass ) {
     return "All fields must be filled";
   }
   if (!validator.isEmail(email)) {
