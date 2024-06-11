@@ -24,58 +24,33 @@ const CourseSchema = new mongoose.Schema({
       student: [UserSchema]
 
 });
-UserSchema.statics.signup = async function (email,pass,passConfirm,name) {
-  if (!email && !pass) {
+UserSchema.statics.signup = async function (email, pass, passConfirm, name) {
+  if (!email || !pass) {
     return "All fields must be filled";
   }
+
   if (!validator.isEmail(email)) {
-    if (!validator.isStrongPassword(pass)) {
-      if (pass == "") {
-        return "pass field must be filled and Email not valid";
-      }
-      return "Password not strong enough and Email not valid";
-    }
-    if (pass != passConfirm) {
-      return "Passwordconfirm is not match and Email not valid";
-    }
     return "Email not valid";
   }
+
   if (!validator.isStrongPassword(pass)) {
-    if (pass != passConfirm) {
-      return "Passwordconfirm is not match and Password not strong enough";
-    }
     return "Password not strong enough";
   }
-  const exists = await this.findOne({ userEmail:email });
+
+  if (pass !== passConfirm) {
+    return "Passwordconfirm is not match";
+  }
+
+  const exists = await this.findOne({ userEmail: email });
   if (exists) {
-    if (!validator.isStrongPassword(pass)) {
-      if (pass == "") {
-        return "pass field must be filled and Email already in use";
-      }
-      if (pass != passConfirm) {
-        return "Password not strong enough and Email already in use and Passwordconfirm is not match";
-      }
-      return "Password not strong enough and Email already in use";
-    }
     return "Email already in use";
   }
 
-  if (pass != passConfirm)
-  {
-    return "Passwordconfirm is not match";
-  } else {
-   /* if (email==="farahawwad@gmail.com"){
-      const salt = await bcrypt.genSalt(10);
-      const hash = await bcrypt.hash(pass,salt);
-      const user = await this.create({userEmail:email, passward:hash,username:name, role:0});
-      return user
-    }else*/ {
-      const salt = await bcrypt.genSalt(10);
-      const hash = await bcrypt.hash(pass,salt);
-      const user = await this.create({userEmail:email, passward:hash,username:name, role:1});
-      return user;
-    }
-  }
+  const salt = await bcrypt.genSalt(10);
+  const hash = await bcrypt.hash(pass, salt);
+  const user = await this.create({ userEmail: email, password: hash, username: name, role: 1 });
+
+  return user;
 };
 UserSchema.statics.login = async function (email, pass) {
   if (!email && !pass) {

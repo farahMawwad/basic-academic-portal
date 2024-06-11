@@ -30,7 +30,7 @@ navigate('/signin')
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://127.0.0.1:8080/user/signup', {email,pass,passConfirm,name});
+      const response = await axios.post('http://127.0.0.1:8080/user/signup', { email, pass, passConfirm, name});
       const data = response.data;
       if (typeof data === "object") {
         navigate("/signin");

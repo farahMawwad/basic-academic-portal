@@ -6,9 +6,9 @@ const createToken = (_id,role) => {
 };
 exports.signup = async (req, res) => {
   console.log(req.body);
-  const {email,pass,passConfirm,name} = req.body;
+  const { email, pass, passConfirm, name} = req.body;
   try {
-    const result = await User.signup(email,pass,passConfirm,name);
+    const result = await User.signup( email, pass, passConfirm, name);
     if (typeof result === "object") {
       res.status(200).json({ email});
     } else {
